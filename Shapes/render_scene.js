@@ -80,6 +80,12 @@ function initWindowListeners()  {
             case 3:
                 shape = Shapes.disk;
                 break;
+            case 4:
+                shape = Shapes.sphere;
+                break;
+            case 5:
+                shape = Shapes.semisphere;
+                break;
         }
     };
 }

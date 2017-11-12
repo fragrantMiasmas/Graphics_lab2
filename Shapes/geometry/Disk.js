@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-function Disk(num_divisions, offset){ //num division determines resolution and number of triangles
+function Disk(num_divisions){ //num division determines resolution and number of triangles
     
     //var num_divisions = 8; //triangles
     this.name = "Disk";
@@ -16,7 +16,7 @@ function Disk(num_divisions, offset){ //num division determines resolution and n
      // Local variables: unique vertices and colors.
     ////////////////////////////////////////////////////////////
     
-    var center_vertex = vec4(0, offset, 0, 1); //offset from center, default 0
+    var center_vertex = vec4(0, 0, 0, 1); //offset from center, default 0
 
     var outside_vertices = [];
        
