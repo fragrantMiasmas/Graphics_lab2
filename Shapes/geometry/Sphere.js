@@ -20,18 +20,19 @@ function Sphere(num_sides) { //start with disks instead of cylinders
     for (var i = 0; i < num_cylinders; i++) {
         
         outside_vertices[i] = []; 
+        var percent1 = (i* 3 * Math.PI/2)/ num_cylinders; //cos(pi/2) = 0
+        
+        //fixes an error where y value repeats after reaching -1
+        var percent = percent1 * (3/4);
+        var radius = Math.sin(percent); //beginning point should = (0,1) 
+        var  yval = Math.cos(percent);
 
         for (var j = 0; j < num_sides; j++) { //create each disk
-
-        var percent1 = (i* (3 *(Math.PI/2)))/ num_cylinders; //cos(pi/2) = 0
-        var radius = Math.cos(percent1); //beginning radius should =1 
-        var  yval = Math.sin(percent1);
 
             var percentage = (2 * Math.PI * j) / num_sides;
             var xval = Math.cos(percentage) * radius;
             var zval = Math.sin(percentage) * radius;
             var newpoint = vec4(xval, yval, zval,1);
-//            console.log(newpoint);
             outside_vertices[i][j] = newpoint;
         }
     }
@@ -50,12 +51,11 @@ function Sphere(num_sides) { //start with disks instead of cylinders
             p5 = outside_vertices[(i+1)% num_sides][j];
             p6 = outside_vertices[(i+1)% num_sides][(j + 1) % num_sides];
             
-            this.vertices.push(p1, p2, p3,p4,p5,p6);
+            this.vertices.push(p1, p2, p3, p4, p5, p6);
             this.colors.push(color1, color2, color3, color1, color2, color3);
 
         }
         
     }
-//    console.log(this.vertices);
 }
 
